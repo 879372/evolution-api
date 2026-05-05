@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  evolution-api:
+    container_name: evolution_api
+    image: atendai/evolution-api:v2.1.1
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      # Configurações Básicas
+      - SERVER_URL=http://localhost:8080
+      - AUTHENTICATION_API_KEY=mude-me-por-uma-chave-segura
+      
+      # Persistência (Descomente se for usar Banco de Dados)
+      # - DATABASE_ENABLED=true
+      # - DATABASE_PROVIDER=postgresql
+      # - DATABASE_CONNECTION_URI=postgresql://postgres:senha@db:5432/evolution
+      
+      # Redis (Descomente para melhor performance)
+      # - CACHE_REDIS_ENABLED=true
+      # - CACHE_REDIS_URI=redis://redis:6379/1
+    volumes:
+      - evolution_instances:/evolution/instances
+
+volumes:
+  evolution_instances:
