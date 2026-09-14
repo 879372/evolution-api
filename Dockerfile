@@ -1,4 +1,4 @@
-FROM atendai/evolution-api:v1.8.2
+FROM evoapicloud/evolution-api:v2.3.7
 
 # A Evolution API usa a porta 8080 por padrão
 EXPOSE 8080
